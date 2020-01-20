@@ -1,5 +1,5 @@
 // buat data arraynya
-let arrayDuplicate = [1, 34, 6, 1, 1, 6, 34, 8, 8, 9, 1, 6]
+let arrayDuplicate = [1, 34, 6, 1, 1, 6, 34, 8, 8, 9, 1, 6, 1, 1, 45, 56, 1, 89, 'sheena', 'sheena', 'ali']
 // buat variable baru untuk nampung
 let result = [];
 let i = 0;
@@ -12,23 +12,10 @@ let checkArray = (needle, hasytack) => {
 }
 while (i < arrayDuplicate.length) {
     for(let a = 0; a < arrayDuplicate.length; a++){
-        // nggak boleh ngecheck diririnya sendiri
-        if (i != a) {
-            // kondisi untuk ngechek index i apakah sama dengan a
-            if (arrayDuplicate[i] == arrayDuplicate[a]) {
-                let checkarray = checkArray(arrayDuplicate[i], result)
-                // jika hasil dari check array false atau belum ada maka akan di push
-                if (!checkarray) {
-                    result.push(arrayDuplicate[i])
-                }
-            }else {
-                // else ini untuk masukin array yang tidak mempunya nilai yang sama
-                let checkarray = checkArray(arrayDuplicate[i], result)
-                // jika hasil dari check array false atau belum ada maka akan di push
-                if (!checkarray) {
-                    result.push(arrayDuplicate[i])
-                }
-            }
+        let checkarray = checkArray(arrayDuplicate[i], result)
+        // Jika belum ada maka akan dipush
+        if (!checkarray) {
+            result.push(arrayDuplicate[i])
         }
     }
     i++
